@@ -5,29 +5,12 @@ import CloseIcon from '@material-ui/icons/Close';
 import StarIcon from '@material-ui/icons/Star';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import '../style/Card.css';
+import jsonData from '../sample_database.json';
 
-const db = [
-	{
-		name: 'McDonald',
-		place: 'ดาวพลูโต',
-		distance: '5.1795 ล้านล้านกิโลเมตร',
-		url: './img/macdonald.jpg',
-	},
-	{
-		name: 'KFC',
-		place: 'เชียงใหม่',
-		distance: 'ไม่ถึง 100 เมตร',
-		url: './img/kfc.jpg',
-	},
-	{
-		name: 'Pizza Company',
-		place: 'โรงอาหารวิศวะฯ',
-		distance: '200 เมตร',
-		url: './img/pizza_company.jpg',
-	},
-];
+// import db from json
+const db = jsonData.store;
 
-function Card() {
+const Card = () => {
 	const [currentIndex, setCurrentIndex] = useState(db.length - 1);
 	const [lastDirection, setLastDirection] = useState();
 	// used for outOfFrame closure
@@ -124,6 +107,6 @@ function Card() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Card;

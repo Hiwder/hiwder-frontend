@@ -1,0 +1,22 @@
+{
+	"store": [
+		{
+			"name": "McDonald",
+			"place": "ดาวพลูโต",
+			"distance": "5.1795 ล้านล้านกิโลเมตร",
+			"url": "./img/mcdonald.jpg"
+		},
+		{
+			"name": "KFC",
+			"place": "เชียงใหม่",
+			"distance": "ไม่ถึง 100 เมตร",
+			"url": "./img/kfc.jpg"
+		},
+		{
+			"name": "Pizza Company",
+			"place": "โรงอาหารวิศวะฯ",
+			"distance": "200 เมตร",
+			"url": "./img/pizza_company.jpg"
+		}
+	]
+}
