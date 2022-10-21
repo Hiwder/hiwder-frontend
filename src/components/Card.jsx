@@ -1,10 +1,8 @@
 import React, { useState, useMemo, useRef } from 'react';
 import TinderCard from 'react-tinder-card';
 import { IconButton } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-import StarIcon from '@material-ui/icons/Star';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import '../style/Card.css';
+import { useNavigate } from 'react-router-dom';
 import jsonData from '../sample_database.json';
 
 // import db from json
@@ -13,6 +11,7 @@ const db = jsonData.store;
 const Card = () => {
 	const [currentIndex, setCurrentIndex] = useState(db.length - 1);
 	const [lastDirection, setLastDirection] = useState();
+	const navigate = useNavigate();
 	// used for outOfFrame closure
 	const currentIndexRef = useRef(currentIndex);
 
@@ -35,6 +34,10 @@ const Card = () => {
 	const swiped = (direction, swipedName, index) => {
 		setLastDirection(direction);
 		updateCurrentIndex(index - 1);
+		if (direction === 'up') {
+			console.log('swiped up');
+			navigate('/about/' + swipedName);
+		}
 	};
 
 	const swipe = async (dir) => {
@@ -52,7 +55,7 @@ const Card = () => {
 						className="swipe"
 						key={store.name}
 						onSwipe={(dir) => swiped(dir, store.name, index)}
-						preventSwipe={['up', 'down']}
+						preventSwipe={['down']}
 					>
 						<div
 							style={{ backgroundImage: 'url(' + store.url + ')' }}
@@ -66,43 +69,11 @@ const Card = () => {
 				))}
 			</div>
 			<div className="buttons">
-				<IconButton
-					onClick={() => swipe('left')}
-					style={{
-						border: '2px solid #FF5E51',
-						borderRadius: '100%',
-						color: '#FF5E51',
-						width: '4rem',
-						height: '4rem',
-						padding: '1.25rem',
-					}}
-				>
-					<CloseIcon fontSize="large" />
+				<IconButton onClick={() => swipe('left')}>
+					<img src="./img/closeIcon.png" />
 				</IconButton>
-				<IconButton
-					style={{
-						border: '2px solid #07A6FF',
-						borderRadius: '100%',
-						color: '#07A6FF',
-						width: '2.5rem',
-						height: '2.5rem',
-						padding: '0.8rem',
-					}}
-				>
-					<StarIcon fontSize="medium" />
-				</IconButton>
-				<IconButton
-					onClick={() => swipe('right')}
-					style={{
-						border: '2px solid #00D387',
-						borderRadius: '100%',
-						color: '#00D387',
-						width: '4rem',
-						height: '4rem',
-						padding: '1.25rem',
-					}}
-				>
-					<FavoriteIcon fontSize="large" />
+				<IconButton onClick={() => swipe('right')}>
+					<img src="./img/favIcon.png" />
 				</IconButton>
 			</div>
 		</div>
