@@ -1,0 +1,22 @@
+.footer {
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	bottom: 5vh;
+	width: 80vw;
+	height: 33px;
+	max-width: 384px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.footer__icon {
+	width: 33px;
+	height: 33px;
+	border-radius: 50%;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
