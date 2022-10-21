@@ -8,7 +8,7 @@ const Footer = () => {
 	return (
 		<div className="footer">
 			<div className="footer__icon">
-				<HomeOutlinedIcon fontSize="large" />
+				<HomeOutlinedIcon />
 			</div>
 			<div className="footer__icon">
 				<SearchOutlinedIcon fontSize="large" />
