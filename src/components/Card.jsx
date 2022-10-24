@@ -31,12 +31,11 @@ const Card = () => {
 	const canSwipe = currentIndex >= 0;
 
 	// set last direction and decrease current index
-	const swiped = (direction, swipedName, index) => {
+	const swiped = (direction, swipedID, index) => {
 		setLastDirection(direction);
 		updateCurrentIndex(index - 1);
 		if (direction === 'up') {
-			console.log('swiped up');
-			navigate('/about/' + swipedName);
+			navigate('/about/' + swipedID);
 		}
 	};
 
@@ -54,16 +53,16 @@ const Card = () => {
 						ref={childRefs[index]}
 						className="swipe"
 						key={store.name}
-						onSwipe={(dir) => swiped(dir, store.name, index)}
+						onSwipe={(dir) => swiped(dir, store.id, index)}
 						preventSwipe={['down']}
 					>
 						<div
-							style={{ backgroundImage: 'url(' + store.url + ')' }}
+							style={{ backgroundImage: 'url(' + store.image_url + ')' }}
 							className="card"
 						>
 							<h3>{store.name}</h3>
 							<p>{store.place}</p>
-							<p>{store.distance}</p>
+							<p>{store.distance} กิโลเมตร</p>
 						</div>
 					</TinderCard>
 				))}

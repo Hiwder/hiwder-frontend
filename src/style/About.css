@@ -1,0 +1,28 @@
+.banner {
+	position: relative;
+	background-size: cover;
+
+	height: 34vh;
+	width: 100vw;
+	max-width: 480px;
+	max-height: 800px;
+
+	border-radius: 30px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.banner > h1 {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+	line-height: 32px;
+	color: #fff;
+
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	transform: translate(-50%, -50%);
+}

@@ -1,22 +1,57 @@
 {
 	"store": [
 		{
+			"id": "001",
 			"name": "McDonald",
 			"place": "ดาวพลูโต",
-			"distance": "5.1795 ล้านล้านกิโลเมตร",
-			"url": "./img/mcdonald.jpg"
+			"image_url": "./img/mcdonald.jpg",
+			"distance": 0.4,
+			"location": [
+				13.736776127722957,
+				13
+			],
+			"price": "15-50",
+			"star": 4,
+			"details": "8.00 a.m. - 17.00 p.m.",
+			"tags": [
+				"ice cream"
+			]
 		},
 		{
+			"id": "002",
 			"name": "KFC",
 			"place": "เชียงใหม่",
-			"distance": "ไม่ถึง 100 เมตร",
-			"url": "./img/kfc.jpg"
+			"image_url": "./img/kfc.jpg",
+			"distance": 3.5,
+			"location": [
+				13.73691031039409,
+				100.53427118070329
+			],
+			"price": "20-80",
+			"star": 4,
+			"details": "8.00 a.m. - 17.00 p.m.",
+			"tags": [
+				"a la carte",
+				"thai food"
+			]
 		},
 		{
+			"id": "003",
 			"name": "Pizza Company",
 			"place": "โรงอาหารวิศวะฯ",
-			"distance": "200 เมตร",
-			"url": "./img/pizza_company.jpg"
+			"image_url": "./img/pizza_company.jpg",
+			"distance": 3.5,
+			"location": [
+				13.736866017092654,
+				100.53425844021075
+			],
+			"price": "20-60",
+			"star": 3,
+			"details": "8.00 a.m. - 17.00 p.m.",
+			"tags": [
+				"a la carte",
+				"thai food"
+			]
 		}
 	]
 }
