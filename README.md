@@ -1,4 +1,4 @@
-<h1>🦍🦍🦍🦍🦍 Uga Uga Uga 🦍🦍🦍🦍🦍</h1>
+<h1 align="center">🦍🦍🦍🦍🦍 Uga Uga Uga 🦍🦍🦍🦍🦍</h1>
 
 <h2> What is Gorilla? 🦍</h2>
 <p> Gorillas are a family of primates native to Africa. The genus Gorilla is divided into two species: the eastern gorillas and the western gorillas, and either four or five subspecies. They are ground-dwelling, predominantly herbivorous apes that inhabit the forests of central Africa. </p>
