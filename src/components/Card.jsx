@@ -10,6 +10,7 @@ const db = jsonData.store;
 
 const Card = () => {
 	const [currentIndex, setCurrentIndex] = useState(db.length - 1);
+	// eslint-disable-next-line
 	const [lastDirection, setLastDirection] = useState();
 	const navigate = useNavigate();
 	// used for outOfFrame closure
@@ -69,10 +70,10 @@ const Card = () => {
 			</div>
 			<div className="buttons">
 				<IconButton onClick={() => swipe('left')}>
-					<img src="./img/closeIcon.png" />
+					<img src="./img/closeIcon.png" alt="" />
 				</IconButton>
 				<IconButton onClick={() => swipe('right')}>
-					<img src="./img/favIcon.png" />
+					<img src="./img/favIcon.png" alt="" />
 				</IconButton>
 			</div>
 		</div>
