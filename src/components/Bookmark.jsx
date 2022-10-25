@@ -1,9 +1,6 @@
 import { IconButton } from '@material-ui/core';
-import ArrowsBackIosNewIcon from '@material-ui/icons/ArrowBackIos';
-import AddIcon from '@material-ui/icons/Add';
 import '../style/Bookmark.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 const Bookmark = () => {
 	return (
