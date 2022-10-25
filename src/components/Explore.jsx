@@ -16,52 +16,64 @@ const Explore = () => {
 					</IconButton>
 				</Link>
 				<input
-					className='searchbar'
+					className="searchbar"
 					type="text"
 					placeholder="Search"
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
 				/>
 			</div>
-			<div className='categories'>
-				<div className='category'>
+			<div className="categories">
+				<div className="category">
 					<p>Thai Food</p>
-					<img src="./img/category1.png" />
+					<img src="./img/category1.png" alt="" />
 				</div>
-				<div className='category'>
+				<div className="category">
 					<p>Dessert</p>
-					<img src="./img/category2.png" />
+					<img src="./img/category2.png" alt="" />
 				</div>
-				<div className='category'>
+				<div className="category">
 					<p>Steak</p>
-					<img src="./img/category3.png" />
+					<img src="./img/category3.png" alt="" />
 				</div>
 			</div>
-			<div className='nearyou'>
-				<p style={{gridArea: 'header'}}>near you</p>
-				<div className='shop' style={{
-					gridArea: 'menu1'
-				}}>
+			<div className="nearyou">
+				<p style={{ gridArea: 'header' }}>near you</p>
+				<div
+					className="shop"
+					style={{
+						gridArea: 'menu1',
+					}}
+				>
 					<p>ร้านป้าเบลอ</p>
-					<img src="./img/nearyou1.png" />
+					<img src="./img/nearyou1.png" alt="" />
 				</div>
-				<div className='shop' style={{
-					gridArea: 'menu2'
-				}}>
+				<div
+					className="shop"
+					style={{
+						gridArea: 'menu2',
+					}}
+				>
 					<p>ลุงเหนอ ก๋วยเตี๋ยวทรงเครื่อง</p>
-					<img src="./img/nearyou2.png" />
+					<img src="./img/nearyou2.png" alt="" />
 				</div>
-				<div className='shop' style={{
-					gridArea: 'menu3'
-				}}>
+				<div
+					className="shop"
+					style={{
+						gridArea: 'menu3',
+					}}
+				>
 					<p>café amazon</p>
-					<img src="./img/nearyou3.png" />
+					<img src="./img/nearyou3.png" alt="" />
 				</div>
-				<div className='shop' style={{
-					gridArea: 'menu4'
-				}}>
+				<div
+					className="shop"
+					style={{
+						gridArea: 'menu4',
+					}}
+				>
 					<p>Inthanin Coffee</p>
-					<img src="./img/nearyou4.png" />
+					<img src="./img/nearyou4.png" alt="" />
 				</div>
 			</div>
 		</div>
