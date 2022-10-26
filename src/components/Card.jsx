@@ -1,14 +1,28 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import TinderCard from 'react-tinder-card';
 import { IconButton } from '@material-ui/core';
 import '../style/Card.css';
 import { useNavigate } from 'react-router-dom';
-import jsonData from '../sample_database.json';
-
-// import db from json
-const db = jsonData.store;
 
 const Card = () => {
+	const [db, setDB]=useState([])
+	useEffect(() => {
+		if(navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				fetch('https://hiwder-tazrzv72fq-as.a.run.app/items-list', {
+					method: "POST",
+					headers: {
+						"Content-Type": 'application/json'
+					},
+					body: JSON.stringify({
+						location: [position.coords.latitude, position.coords.longitude]
+					})
+				})
+				.then(response=>response.json())
+				.then(data=>setDB(data.items))
+			});
+		}
+	 }, [])
 	const [currentIndex, setCurrentIndex] = useState(db.length - 1);
 	// eslint-disable-next-line
 	const [lastDirection, setLastDirection] = useState();
@@ -21,6 +35,7 @@ const Card = () => {
 			Array(db.length)
 				.fill(0)
 				.map((i) => React.createRef()),
+				// eslint-disable-next-line
 		[],
 	);
 
