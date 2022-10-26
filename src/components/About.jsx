@@ -4,12 +4,14 @@ import { PeopleOutline, StarBorderOutlined } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 
+const apiLink='https://hiwder-tazrzv72fq-as.a.run.app/'
+
 const About = () => {
 	const [db, setDB] = useState([]);
 	useEffect(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
-				fetch('https://hiwder-tazrzv72fq-as.a.run.app/items-list', {
+				fetch(apiLink+'items-list', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -27,6 +29,32 @@ const About = () => {
 	const [review, setReview] = useState('');
 	const { id } = useParams();
 	const store = db.find((store) => store.id === id);
+
+	const travel=(travelBy, dst)=>{
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				fetch(apiLink+travelBy, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						org: [position.coords.latitude, position.coords.longitude],
+						dst: dst,
+					}),
+				})
+					.then((response) => response.json())
+					.then((data) => {
+						if (travelBy==="walk") {
+							window.location.assign(data.WalkRoute.map_link)
+						} else {
+							window.location.assign(data.BeamRoute.map_link)
+						}
+					});
+			});
+		}
+	}
+
 	return store ? (
 		<div>
 			<div
@@ -56,10 +84,10 @@ const About = () => {
 				</div>
 			</div>
 			<div className="transportation">
-				<IconButton className="transportation__icon">
+				<IconButton className="transportation__icon" onClick={()=>travel("walk", store.location)}>
 					<h2>Walk</h2>
 				</IconButton>
-				<IconButton className="transportation__icon">
+				<IconButton className="transportation__icon" onClick={()=>travel("beam", store.location)}>
 					<h2>ฺBeam</h2>
 				</IconButton>
 				<IconButton className="transportation__icon">
