@@ -2,27 +2,8 @@ import { useParams } from 'react-router-dom';
 import '../style/About.css';
 import { PeopleOutline, StarBorderOutlined } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
-import { useState } from 'react';
-
-const About = () => {
-	const [db, setDB] = useState([]);
-	useEffect(() => {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function (position) {
-				fetch('https://hiwder-tazrzv72fq-as.a.run.app/items-list', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						location: [position.coords.latitude, position.coords.longitude],
-					}),
-				})
-					.then((response) => response.json())
-					.then((data) => setDB(data.items));
-			});
-		}
-	}, []);
+import { useState, useEffect } from 'react';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 const About = () => {
 	const [db, setDB] = useState([]);
