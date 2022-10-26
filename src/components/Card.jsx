@@ -63,6 +63,9 @@ const Card = () => {
 		}
 	};
 
+	let mousePosX = 0;
+	let mousePosY = 0;
+
 	return (
 		<div>
 			<div className="cardContainer">
@@ -77,6 +80,18 @@ const Card = () => {
 						<div
 							style={{ backgroundImage: 'url(' + store.image_url + ')' }}
 							className="card"
+							onMouseDown={(e) => {
+								mousePosX = e.clientX;
+								mousePosY = e.clientY;
+							}}
+							onMouseUp={(e) => {
+								if (
+									Math.abs(e.clientX - mousePosX) < 10 &&
+									Math.abs(e.clientY - mousePosY) < 10
+								) {
+									swipe('up');
+								}
+							}}
 						>
 							<h3>{store.name}</h3>
 							<p>{store.place}</p>
