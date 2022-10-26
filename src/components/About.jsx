@@ -34,9 +34,7 @@ const About = () => {
 				style={{
 					backgroundImage: `url(${store.image_url})`,
 				}}
-			>
-				<h1>About</h1>
-			</div>
+			></div>
 			<div className="details">
 				<h2>{store.name}</h2>
 				<p>{store.distance}</p>
@@ -59,13 +57,13 @@ const About = () => {
 			</div>
 			<div className="transportation">
 				<IconButton className="transportation__icon">
-					<h2>Feet</h2>
+					<h2>Walk</h2>
 				</IconButton>
 				<IconButton className="transportation__icon">
-					<h2>Scooter</h2>
+					<h2>ฺBeam</h2>
 				</IconButton>
 				<IconButton className="transportation__icon">
-					<h2>bike</h2>
+					<h2>Pop Bus</h2>
 				</IconButton>
 			</div>
 			<div className="review">
