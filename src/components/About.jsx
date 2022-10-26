@@ -1,24 +1,38 @@
 import { useParams } from 'react-router-dom';
 import '../style/About.css';
-import jsonData from '../sample_database.json';
 import { PeopleOutline, StarBorderOutlined } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
-import { useState } from 'react';
-
-const db = jsonData.store;
+import React, { useEffect, useState } from 'react';
 
 const About = () => {
+	const [db, setDB] = useState([]);
+	useEffect(() => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				fetch('https://hiwder-tazrzv72fq-as.a.run.app/items-list', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						location: [position.coords.latitude, position.coords.longitude],
+					}),
+				})
+					.then((response) => response.json())
+					.then((data) => setDB(data.items));
+			});
+		}
+	}, []);
+
 	const [review, setReview] = useState('');
 	const { id } = useParams();
-
 	const store = db.find((store) => store.id === id);
-
-	return (
+	return store ? (
 		<div>
 			<div
 				className="banner"
 				style={{
-					backgroundImage: `url(.${store.image_url})`,
+					backgroundImage: `url(${store.image_url})`,
 				}}
 			>
 				<h1>About</h1>
@@ -86,6 +100,8 @@ const About = () => {
 				/>
 			</div>
 		</div>
+	) : (
+		<div></div>
 	);
 };
 
