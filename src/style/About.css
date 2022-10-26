@@ -40,7 +40,7 @@
 }
 
 .details {
-	margin-top: 23px;
+	margin-top: 10px;
 	font-family: 'Outfit';
 	font-style: normal;
 	font-weight: 100;
@@ -144,10 +144,20 @@
 	justify-content: center;
 	background-color: #f4b000;
 	border-radius: 30px;
+	padding: 5px;
+}
+
+.transportation__type {
+	font-size: 18px;
+	line-height: 14px;
 }
 
 .transportation__icon {
 	width: 33.33%;
+}
+
+#side {
+	border-radius: 30px;
 }
 
 #middle {

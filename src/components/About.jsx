@@ -58,14 +58,14 @@ const About = () => {
 					))}
 				</div>
 				<div className="transportation">
-					<IconButton className="transportation__icon">
-						<p>Walk</p>
+					<IconButton className="transportation__icon" id='side'>
+						<p className='transportation__type'>Walk</p>
 					</IconButton>
 					<IconButton className="transportation__icon" id="middle">
-						<p>Beam</p>
+						<p className='transportation__type'>Beam</p>
 					</IconButton>
-					<IconButton className="transportation__icon">
-						<p>Pop Bus</p>
+					<IconButton className="transportation__icon" id='side'>
+						<p className='transportation__type'>Pop Bus</p>
 					</IconButton>
 				</div>
 				<div className="review">
