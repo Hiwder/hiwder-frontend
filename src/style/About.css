@@ -1,17 +1,28 @@
 .banner {
 	position: relative;
 	background-size: cover;
-
 	height: 34vh;
 	width: 100vw;
 	max-width: 480px;
-	max-height: 800px;
-
 	border-radius: 30px;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	left: 50%;
+	transform: translate(-50%,-30px);
+}
+
+.banner:before {
+	border-radius: 30px;
+	content: "";
+  	display: block;
+  	position: absolute;
+  	top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	background: rgba(0, 0, 0, 0.3);
+  	transition: all .3s linear;
 }
 
 .banner > h1 {
@@ -20,9 +31,181 @@
 	font-size: 25px;
 	line-height: 32px;
 	color: #fff;
-
+	font-family: 'Outfit';
+	font-style: normal;
 	position: absolute;
 	left: 50%;
 	top: 30%;
 	transform: translate(-50%, -50%);
+}
+
+.details {
+	margin-top: 23px;
+	font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 100;
+	display: flex;
+    flex-direction: column;	
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	max-width: 480px;
+}
+
+.StoreName {
+	position: relative;
+	left: 8%;
+	font-size: 19px;
+	line-height: 24px;
+	max-width: 100%;
+	width: fit-content;
+}
+
+.StorePrice {
+	position: relative;
+	left: 92%;
+	transform: translate(-100%, 0);
+	font-size: 15px;
+	line-height: 19px;
+	width: fit-content;
+	max-width: 100%;
+	width: fit-content;
+}
+
+.StoreDistance {
+	position: relative;
+	left: 8%;
+	font-size: 12px;
+	line-height: 15px;
+	max-width: 100%;
+	width: fit-content;
+}
+
+.rating {
+	position: relative;
+	left: 8%;
+	margin-top: 14px;
+	max-width: 100%;
+	width: fit-content;
+}
+
+.Detail {
+	position: relative;
+	left: 8%;
+	margin-top: 14.4px;
+	font-size: 19px;
+	line-height: 24px;
+	max-width: 100%;
+	width: fit-content;
+}
+
+.StoreDetail {
+	border-top: 4px;
+	position: relative;
+	left: 8%;
+	font-size: 12px;
+	line-height: 15px;
+	max-width: 100%;
+	width: fit-content;
+}
+
+.tags {
+	position: relative;
+	left: 8%;
+	margin-top: 14px;
+	font-size: 11px;
+	line-height: 14px;
+	display: flex;
+	flex-direction: row;
+	column-gap: 16px;
+	max-width: 100%;
+	width: fit-content;
+}
+
+.tag {
+	width: 82px;
+	height: 25px;
+	border: solid;
+	border-radius: 50px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	border-width: 0.1px;
+}
+
+.transportation {
+	margin-top: 35px;
+	position: relative;
+	display: flex;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 84%;
+	justify-content: center;
+	background-color: #F4B000;
+	border-radius: 30px;
+}
+
+.transportation__icon {
+	width: 33.33%;
+}
+
+#middle {
+	border-left: solid;
+	border-right: solid;
+	border-radius: 0;
+	border-width: 1.04px;
+	border-color: #B78301;
+}
+
+.review {
+	font-size: 14px;
+	line-height: 17px;
+	margin-top: 34.59px;
+	position: relative;
+	left: 4%;
+	width: 92%;
+}
+
+.reviewfirstline {
+	display: flex;
+	flex-direction: row;
+}
+
+.reviewfirstline > p {
+	transform: translate(0, 3px);
+}
+
+.review__card {
+	display: flex;
+	flex-direction: row;
+	column-gap: 10px;
+	margin-top: 18px;
+	margin-bottom: 1px;
+}
+
+.review__card__body {
+	padding: 5px;
+	border-radius: 5px;
+	background-color: #D9D9D9;
+}
+
+.addareview {
+	position: relative;
+	left: 4%;
+	width: 96%;
+	height: 27.3px;
+	margin-top: 50px;
+	margin-bottom: 27.3px;
+	border-radius: 5px;
+	background-color: #D9D9D9;
+	padding-left: 10px;
+	border: none;
+}
+
+.addareview::placeholder {
+	font-size: 11px;
+	line-height: 14px;
+	color: black;
+	opacity: 1;
 }
