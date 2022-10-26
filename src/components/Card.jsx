@@ -9,7 +9,7 @@ const Card = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	useEffect(() => {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function (position) {
+			navigator.geolocation.getCurrentPosition((position) => {
 				fetch('https://hiwder-tazrzv72fq-as.a.run.app/items-list', {
 					method: 'POST',
 					headers: {
@@ -21,8 +21,8 @@ const Card = () => {
 				})
 					.then((response) => response.json())
 					.then((data) => {
-						setDB(data.items)
-						setCurrentIndex(data.items.length)
+						setDB(data.items);
+						setCurrentIndex(data.items.length - 1);
 					});
 			});
 		}
