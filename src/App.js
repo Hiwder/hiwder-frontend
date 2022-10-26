@@ -3,6 +3,7 @@ import './style/App.css';
 import Card from './components/Card';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './components/About';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import Explore from './components/Explore';
 import Bookmark from './components/Bookmark';
@@ -21,6 +22,7 @@ function App() {
 						index
 						element={
 							<>
+								<Header />
 								<Card />
 								<Footer />
 							</>
