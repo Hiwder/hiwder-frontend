@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Card = () => {
 	const [db, setDB] = useState([]);
+	const [currentIndex, setCurrentIndex] = useState(0);
 	useEffect(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
@@ -19,12 +20,13 @@ const Card = () => {
 					}),
 				})
 					.then((response) => response.json())
-					.then((data) => setDB(data.items));
+					.then((data) => {
+						setDB(data.items)
+						setCurrentIndex(data.items.length)
+					});
 			});
 		}
-		setCurrentIndex(db.length - 1);
 	}, []);
-	const [currentIndex, setCurrentIndex] = useState(db.length - 1);
 	// eslint-disable-next-line
 	const [lastDirection, setLastDirection] = useState();
 	const navigate = useNavigate();
@@ -36,7 +38,7 @@ const Card = () => {
 			Array(db.length)
 				.fill(0)
 				.map((_) => React.createRef()),
-		[],
+		[db],
 	);
 
 	const updateCurrentIndex = (val) => {
