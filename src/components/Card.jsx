@@ -5,24 +5,25 @@ import '../style/Card.css';
 import { useNavigate } from 'react-router-dom';
 
 const Card = () => {
-	const [db, setDB]=useState([])
+	const [db, setDB] = useState([]);
 	useEffect(() => {
-		if(navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function(position) {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
 				fetch('https://hiwder-tazrzv72fq-as.a.run.app/items-list', {
-					method: "POST",
+					method: 'POST',
 					headers: {
-						"Content-Type": 'application/json'
+						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify({
-						location: [position.coords.latitude, position.coords.longitude]
-					})
+						location: [position.coords.latitude, position.coords.longitude],
+					}),
 				})
-				.then(response=>response.json())
-				.then(data=>setDB(data.items))
+					.then((response) => response.json())
+					.then((data) => setDB(data.items));
 			});
 		}
-	 }, [])
+		setCurrentIndex(db.length - 1);
+	}, []);
 	const [currentIndex, setCurrentIndex] = useState(db.length - 1);
 	// eslint-disable-next-line
 	const [lastDirection, setLastDirection] = useState();
@@ -34,8 +35,7 @@ const Card = () => {
 		() =>
 			Array(db.length)
 				.fill(0)
-				.map((i) => React.createRef()),
-				// eslint-disable-next-line
+				.map((_) => React.createRef()),
 		[],
 	);
 

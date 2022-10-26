@@ -5,24 +5,25 @@ import { IconButton } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 
 const About = () => {
-	const [db, setDB]=useState([])
+	const [db, setDB] = useState([]);
 	useEffect(() => {
-		if(navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function(position) {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
 				fetch('https://hiwder-tazrzv72fq-as.a.run.app/items-list', {
-					method: "POST",
+					method: 'POST',
 					headers: {
-						"Content-Type": 'application/json'
+						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify({
-						location: [position.coords.latitude, position.coords.longitude]
-					})
+						location: [position.coords.latitude, position.coords.longitude],
+					}),
 				})
-				.then(response=>response.json())
-				.then(data=>setDB(data.items))
+					.then((response) => response.json())
+					.then((data) => setDB(data.items));
 			});
 		}
-	 }, [])
+	}, []);
+
 	const [review, setReview] = useState('');
 	const { id } = useParams();
 	const store = db.find((store) => store.id === id);
@@ -99,7 +100,9 @@ const About = () => {
 				/>
 			</div>
 		</div>
-	): <div></div>;
+	) : (
+		<div></div>
+	);
 };
 
 export default About;
