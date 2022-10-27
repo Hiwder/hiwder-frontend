@@ -1,66 +1,66 @@
 .header {
-    margin-top:20px;
-    margin-left:-10px;
-    display: flex;
-    justify-content: center;
+	margin-top: 20px;
+	margin-left: -10px;
+	display: flex;
+	justify-content: center;
 }
 
-.header > p{
-    font-family: 'Outfit';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 13px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    letter-spacing: 0.06px;
-    justify-content: center;
+.header > p {
+	font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 13px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #ffffff;
+	letter-spacing: 0.06px;
+	justify-content: center;
 }
 
 .rectangle {
-    margin-top:0px;
-    width:100vw;
-    height: 223px;
-    background: #F4B000;
-    border-radius:22px;
+	margin-top: 0px;
+	width: 100vw;
+	height: 223px;
+	background: #f4b000;
+	border-radius: 22px;
 }
 
 .logo {
-    box-sizing: border-box;
-    position: absolute;
-    width: 56px;
-    height: 50px;
-    left: 48px;
-    top: 124px;
-    border: 1px solid #000000;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    background: "./img/Dessert.png";
-    border-radius: 0px;
+	box-sizing: border-box;
+	position: absolute;
+	width: 56px;
+	height: 50px;
+	left: 48px;
+	top: 124px;
+	border: 1px solid #000000;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	background: './img/Dessert.png';
+	border-radius: 0px;
 }
 
 .orgRectangle {
-    position: absolute;
-    width: 65vw;
-    height: 29px;
-    left: 123px;
-    top: 112px;
-    background: #FFFFFF;
-    border-radius: 22px;
+	position: absolute;
+	width: 65vw;
+	height: 29px;
+	left: 123px;
+	top: 112px;
+	background: #ffffff;
+	border-radius: 22px;
 }
 
 .dstRectangle {
-    position: absolute;
-    width: 65vw;
-    height: 29px;
-    left: 123px;
-    top: 159px;
-    background: #FFFFFF;
-    border-radius: 22px;
+	position: absolute;
+	width: 65vw;
+	height: 29px;
+	left: 123px;
+	top: 159px;
+	background: #ffffff;
+	border-radius: 22px;
 }
 
 .screen {
-    width: 100vw;
-    height: 100vw;
+	width: 100vw;
+	height: 100vw;
 }
