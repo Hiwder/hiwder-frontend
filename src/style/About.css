@@ -1,6 +1,7 @@
 .banner {
 	position: relative;
 	background-size: cover;
+
 	height: 34vh;
 	width: 100vw;
 	max-width: 480px;
@@ -124,14 +125,14 @@
 }
 
 .tag {
+	background-color: #d9d9d9;
+	border: none;
 	width: 82px;
 	height: 25px;
-	border: solid;
 	border-radius: 50px;
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	border-width: 0.1px;
 }
 
 .transportation {
@@ -156,8 +157,18 @@
 	width: 33.33%;
 }
 
-#side {
-	border-radius: 30px;
+#left {
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#right {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
 }
 
 #middle {

@@ -1,0 +1,46 @@
+.rectangle {
+	position: fixed;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	background-color: #f4b000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 25vh;
+	width: 100vw;
+	max-width: 600px;
+	z-index: 1;
+}
+
+.title {
+	margin-bottom: 2rem;
+	font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 13px;
+
+	letter-spacing: 0.06px;
+	color: white;
+}
+
+.currLocation,
+.destination {
+	width: 80vw;
+	max-width: 480px;
+	background-color: white;
+	border-radius: 22px;
+	height: 30px;
+	padding: 0 1.5rem;
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+
+	font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 13px;
+}

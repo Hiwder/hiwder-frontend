@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Explore from './components/Explore';
 import Bookmark from './components/Bookmark';
 import Profile from './components/Profile';
+import Map from './components/Map';
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 					<Route path="/explore" element={<Explore />} />
 					<Route path="/bookmark" element={<Bookmark />} />
 					<Route path="/profile" element={<Profile />} />
+					<Route path="/map/:org/:dst" element={<Map />} />
 					<Route
 						index
 						element={
