@@ -124,14 +124,14 @@
 }
 
 .tag {
+	background-color: #d9d9d9;
+	border: none;
 	width: 82px;
 	height: 25px;
-	border: solid;
 	border-radius: 50px;
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	border-width: 0.1px;
 }
 
 .transportation {
