@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../style/Map.css';
 import {
 	useJsApiLoader,
@@ -19,22 +19,14 @@ const mapContainerStyle = {
 	transform: 'translateX(-50%)',
 };
 
-let work = 0;
-
 const Map = () => {
 	const { org, dst } = useParams();
 	const center = { lat: JSON.parse(org)[0], lng: JSON.parse(org)[1] };
 	const { isLoaded } = useJsApiLoader({
-		googleMapsApiKey: 'AIzaSyDFpNHVnzIYrU49unCss65m4uwVe4RrnUo',
+		googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
 	});
 	const [directionsResponse, setDirectionsResponse] = useState(null);
-	if (!isLoaded) {
-		return <div></div>;
-	}
 	async function calculateRoute() {
-		if (work === 3) {
-			return;
-		}
 		// eslint-disable-next-line
 		const directionsService = new google.maps.DirectionsService();
 		const results = await directionsService.route({
@@ -44,9 +36,13 @@ const Map = () => {
 			travelMode: google.maps.TravelMode.WALKING,
 		});
 		setDirectionsResponse(results);
-		work = work + 1;
 	}
-	calculateRoute();
+	useEffect(()=>{
+		if(isLoaded) {
+			calculateRoute();
+		}
+		// eslint-disable-next-line
+	}, [isLoaded])
 	return directionsResponse ? (
 		<div>
 			<div className="rectangle">
