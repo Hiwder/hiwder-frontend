@@ -5,12 +5,13 @@
 	height: 34vh;
 	width: 100vw;
 	max-width: 480px;
-	border-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	left: 50%;
-	transform: translate(-50%, -30px);
+	transform: translate(-50%);
 }
 
 .banner:before {

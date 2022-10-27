@@ -50,16 +50,18 @@ const Map = () => {
 	return directionsResponse ? (
 		<div>
 			<div className="rectangle">
-				<IconButton>
-					<Link to={'/about/' + JSON.parse(org)[4]}>
-						<ArrowsBackIosIcon
-							fontSize="medium"
-							style={{
-								color: 'white',
-							}}
-						/>
-					</Link>
-				</IconButton>
+				<Link to={'/about/' + JSON.parse(org)[4]}>
+					<IconButton
+						style={{
+							position: 'absolute',
+							top: '2rem',
+							left: '2rem',
+							color: 'white',
+						}}
+					>
+						<ArrowsBackIosIcon />
+					</IconButton>
+				</Link>
 				<p className="title">{JSON.parse(org)[3] + ' route'}</p>
 				<div className="currLocation">{JSON.parse(org)[2]}</div>
 				<div className="destination">{JSON.parse(dst)[2]}</div>

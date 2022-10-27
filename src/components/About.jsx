@@ -1,6 +1,10 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import '../style/About.css';
-import { PeopleOutline, StarBorderOutlined } from '@material-ui/icons';
+import {
+	ArrowBackIos,
+	PeopleOutline,
+	StarBorderOutlined,
+} from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
@@ -90,7 +94,20 @@ const About = () => {
 				style={{
 					backgroundImage: `url(${store.image_url})`,
 				}}
-			></div>
+			>
+				<Link to="/">
+					<IconButton
+						style={{
+							position: 'absolute',
+							top: '2rem',
+							left: '2rem',
+							color: 'white',
+						}}
+					>
+						<ArrowBackIos />
+					</IconButton>
+				</Link>
+			</div>
 			<div className="details">
 				<p className="StoreName">{store.name}</p>
 				<p className="StorePrice">{store.price} THB</p>
