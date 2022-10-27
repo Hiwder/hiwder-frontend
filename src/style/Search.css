@@ -1,0 +1,137 @@
+.header {
+	margin-top: 26px;
+	display: flex;
+	justify-content: center;
+}
+.searchbar {
+	height: 10vh;
+	width: 77vw;
+	max-height: 35px;
+	max-width: 316px;
+	border-radius: 24px;
+	margin-top: 1vh;
+	background: #d9d9d9;
+	border: none;
+	padding: 0 24px;
+}
+
+.categories {
+	margin-top: 46px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.category {
+	width: 90vw;
+	max-width: 354px;
+	max-height: 113px;
+	border-radius: 24px;
+	margin: 5px;
+	position: relative;
+}
+
+.category > img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.category > p {
+	font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 30px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	z-index: 1;
+}
+
+.category:before {
+	width: 100%;
+	height: 100%;
+	border-radius: 24px;
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.3);
+	transition: all 0.3s linear;
+}
+
+.nearyou {
+	width: 90vw;
+	max-width: 354px;
+	margin-top: 46px;
+	display: grid;
+	grid-template-areas:
+		'header header'
+		'menu1 menu2'
+		'menu3 menu4';
+	grid-gap: 10px;
+	padding-bottom: 69px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.nearyou > p {
+	font-family: 'Outfit';
+	padding-bottom: 28px;
+	top: 50%;
+	left: 50%;
+	font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 13px;
+	text-align: center;
+	letter-spacing: 0.06px;
+}
+
+.shop {
+	max-width: 172px;
+	max-height: 113px;
+	border-radius: 24px;
+	position: relative;
+}
+
+.shop > img {
+	width: 100%;
+	height: 100%;
+}
+
+.shop:before {
+	border-radius: 24px;
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.3);
+	transition: all 0.3s linear;
+}
+
+.shop > p {
+	font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	z-index: 1;
+	letter-spacing: 0.06px;
+}
