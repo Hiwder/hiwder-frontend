@@ -1,0 +1,14 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100vw;
+	height: 56px;
+	margin-bottom: 14px;
+}
+
+.header__icon {
+	position: fixed;
+	width: 56px;
+	height: 56px;
+}

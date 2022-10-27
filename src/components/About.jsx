@@ -1,13 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import '../style/About.css';
 import { PeopleOutline, StarBorderOutlined } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 const apiLink='https://hiwder-tazrzv72fq-as.a.run.app/'
 
 const About = () => {
 	const [db, setDB] = useState([]);
+	const navigate=useNavigate();
 	useEffect(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
@@ -30,27 +32,41 @@ const About = () => {
 	const { id } = useParams();
 	const store = db.find((store) => store.id === id);
 
-	const travel=(travelBy, dst)=>{
+	const travel=(travelBy, dst, dstName)=>{
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
-				fetch(apiLink+travelBy, {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						org: [position.coords.latitude, position.coords.longitude],
-						dst: dst,
-					}),
-				})
-					.then((response) => response.json())
-					.then((data) => {
-						if (travelBy==="walk") {
-							window.location.assign(data.WalkRoute.map_link)
-						} else {
-							window.location.assign(data.BeamRoute.map_link)
-						}
-					});
+				if(travelBy==="walk") {
+					const org=[position.coords.latitude, position.coords.longitude, "Your position", "WALK"]
+					const orgStr=encodeURIComponent(JSON.stringify(org));
+					const dstStr=encodeURIComponent(JSON.stringify([dst[0], dst[1], dstName]))
+					navigate('/map/'+orgStr+'/'+dstStr)
+				} else {
+					fetch(apiLink+'beam', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							org: [position.coords.latitude, position.coords.longitude],
+							dst: dst
+						}),
+					})
+						.then((response) => response.json())
+						.then((data) => {
+							if(data.BeamRoute.org.station_name!==data.BeamRoute.dst.station_name) {
+								const orgName=data.BeamRoute.org.station_name
+								const orgLoc=data.BeamRoute.org.station_location
+								const dstName=data.BeamRoute.dst.station_name
+								const dstLoc=data.BeamRoute.dst.station_location
+								const org=[orgLoc[0], orgLoc[1], orgName, "BEAM"]
+								const dst=[dstLoc[0], dstLoc[1], dstName]
+								const orgStr=encodeURIComponent(JSON.stringify(org));
+								const dstStr=encodeURIComponent(JSON.stringify([dst[0], dst[1], dstName]))
+								navigate('/map/'+orgStr+'/'+dstStr)
+							}
+							console.log("You should walk")
+						});
+				}
 			});
 		}
 	}
@@ -64,66 +80,76 @@ const About = () => {
 				}}
 			></div>
 			<div className="details">
-				<h2>{store.name}</h2>
-				<p>{store.distance}</p>
+				<p className="StoreName">{store.name}</p>
+				<p className="StorePrice">{store.price} THB</p>
+				<p className="StoreDistance">{store.distance} kilometer</p>
 				<div className="rating">
-					{store.star}
+					{/* <p>{store.star}</p> */}
 					<StarBorderOutlined />
 					<StarBorderOutlined />
 					<StarBorderOutlined />
 					<StarBorderOutlined />
 					<StarBorderOutlined />
 				</div>
-				<h3>{store.price}</h3>
-				<h2>รายละเอียด</h2>
-				<p>{store.details}</p>
-				<div className="tag">
+				<p className="Detail">Details</p>
+				<p className="StoreDetail">{store.details}</p>
+				<div className="tags">
 					{store.tags.map((tag) => (
-						<p key={tag}>{tag}</p>
+						<p className="tag" key={tag}>
+							{tag}
+						</p>
 					))}
 				</div>
-			</div>
-			<div className="transportation">
-				<IconButton className="transportation__icon" onClick={()=>travel("walk", store.location)}>
-					<h2>Walk</h2>
-				</IconButton>
-				<IconButton className="transportation__icon" onClick={()=>travel("beam", store.location)}>
-					<h2>ฺBeam</h2>
-				</IconButton>
-				<IconButton className="transportation__icon">
-					<h2>Pop Bus</h2>
-				</IconButton>
-			</div>
-			<div className="review">
-				<h2>Review</h2>
-				<div className="review__card">
-					<div className="review__card__header">
-						<PeopleOutline />
-					</div>
-					<div className="review__card__body">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-						laudantium ex deleniti iste fugiat neque suscipit veritatis
-						voluptatem perferendis earum fuga officia, itaque nostrum quaerat
-						eos quod. Excepturi, recusandae accusantium.
-					</div>
+				<div className="transportation">
+					<IconButton className="transportation__icon" id='side' onClick={()=>
+						travel("walk", store.location, store.name)
+					}>
+						<p className='transportation__type'>Walk</p>
+					</IconButton>
+					<IconButton className="transportation__icon" id="middle" onClick={()=>
+						travel("beam", store.location, store.name)
+					}>
+						<p className='transportation__type'>Beam</p>
+					</IconButton>
+					<IconButton className="transportation__icon" id='side'>
+						<p className='transportation__type'>Pop Bus</p>
+					</IconButton>
 				</div>
-				<div className="review__card">
-					<div className="review__card__header">
-						<PeopleOutline />
+				<div className="review">
+					<div className="reviewfirstline">
+						<p>Review </p>
+						<ArrowDropDownIcon></ArrowDropDownIcon>
 					</div>
-					<div className="review__card__body">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
-						earum praesentium consequatur. Dolorem molestias provident, debitis
-						magnam sed, commodi, nemo dolorum nisi est quidem aut perspiciatis.
-						Similique distinctio sed perspiciatis.
+					<div className="review__card">
+						<div className="review__card__header">
+							<PeopleOutline />
+						</div>
+						<div className="review__card__body">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+							laudantium ex deleniti iste fugiat neque suscipit veritatis
+							voluptatem perferendis earum fuga officia, itaque nostrum quaerat
+							eos quod. Excepturi, recusandae accusantium.
+						</div>
 					</div>
+					<div className="review__card">
+						<div className="review__card__header">
+							<PeopleOutline />
+						</div>
+						<div className="review__card__body">
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+							earum praesentium consequatur. Dolorem molestias provident,
+							debitis magnam sed, commodi, nemo dolorum nisi est quidem aut
+							perspiciatis. Similique distinctio sed perspiciatis.
+						</div>
+					</div>
+					<input
+						className="addareview"
+						type="text"
+						placeholder="add a review"
+						value={review}
+						onChange={(e) => setReview(e.target.value)}
+					/>
 				</div>
-				<input
-					type="text"
-					placeholder="add a review"
-					value={review}
-					onChange={(e) => setReview(e.target.value)}
-				/>
 			</div>
 		</div>
 	) : (
