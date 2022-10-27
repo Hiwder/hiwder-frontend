@@ -1,5 +1,4 @@
 import { Link, useParams } from 'react-router-dom';
-import { IconButton } from '@material-ui/core';
 import React, { useState } from 'react';
 import '../style/Map.css';
 import {
@@ -8,6 +7,17 @@ import {
 	DirectionsRenderer,
 	MarkerF,
 } from '@react-google-maps/api';
+import ArrowsBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { IconButton } from '@material-ui/core';
+
+const mapContainerStyle = {
+	width: '100vw',
+	height: '100vh',
+	maxWidth: '600px',
+	position: 'fixed',
+	left: '50%',
+	transform: 'translateX(-50%)',
+};
 
 let work = 0;
 
@@ -40,22 +50,24 @@ const Map = () => {
 	return directionsResponse ? (
 		<div>
 			<div className="rectangle">
-				<div className="header">
-					<Link to="/">
-						<IconButton>
-							<img src="./img/backbutton.png" alt="" />
-						</IconButton>
+				<IconButton>
+					<Link to={'/about/' + JSON.parse(org)[4]}>
+						<ArrowsBackIosIcon
+							fontSize="medium"
+							style={{
+								color: 'white',
+							}}
+						/>
 					</Link>
-					<p>{JSON.parse(org)[3] + ' route'}</p>
-				</div>
-				<div className="logo"></div>
-				<div className="orgRectangle">{JSON.parse(org)[2]}</div>
-				<div className="dstRectangle">{JSON.parse(dst)[2]}</div>
+				</IconButton>
+				<p className="title">{JSON.parse(org)[3] + ' route'}</p>
+				<div className="currLocation">{JSON.parse(org)[2]}</div>
+				<div className="destination">{JSON.parse(dst)[2]}</div>
 			</div>
 			<GoogleMap
 				center={{ lat: JSON.parse(dst)[0], lng: JSON.parse(dst)[1] }}
 				zoom={15}
-				mapContainerStyle={{ width: '100vw', height: '100vh' }}
+				mapContainerStyle={mapContainerStyle}
 				options={{
 					zoomControl: false,
 					streetViewControl: false,

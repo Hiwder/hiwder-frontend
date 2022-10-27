@@ -156,8 +156,18 @@
 	width: 33.33%;
 }
 
-#side {
-	border-radius: 30px;
+#left {
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#right {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
 }
 
 #middle {

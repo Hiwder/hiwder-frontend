@@ -1,66 +1,46 @@
-.header {
-	margin-top: 20px;
-	margin-left: -10px;
+.rectangle {
+	position: fixed;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	background-color: #f4b000;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 25vh;
+	width: 100vw;
+	max-width: 600px;
+	z-index: 1;
 }
 
-.header > p {
+.title {
+	margin-bottom: 2rem;
 	font-family: 'Outfit';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 24px;
 	line-height: 13px;
+
+	letter-spacing: 0.06px;
+	color: white;
+}
+
+.currLocation,
+.destination {
+	width: 80vw;
+	max-width: 480px;
+	background-color: white;
+	border-radius: 22px;
+	height: 30px;
+	padding: 0 1.5rem;
 	display: flex;
 	align-items: center;
-	text-align: center;
-	color: #ffffff;
-	letter-spacing: 0.06px;
-	justify-content: center;
-}
+	margin-bottom: 1rem;
 
-.rectangle {
-	margin-top: 0px;
-	width: 100vw;
-	height: 223px;
-	background: #f4b000;
-	border-radius: 22px;
-}
-
-.logo {
-	box-sizing: border-box;
-	position: absolute;
-	width: 56px;
-	height: 50px;
-	left: 48px;
-	top: 124px;
-	border: 1px solid #000000;
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-	background: './img/Dessert.png';
-	border-radius: 0px;
-}
-
-.orgRectangle {
-	position: absolute;
-	width: 65vw;
-	height: 29px;
-	left: 123px;
-	top: 112px;
-	background: #ffffff;
-	border-radius: 22px;
-}
-
-.dstRectangle {
-	position: absolute;
-	width: 65vw;
-	height: 29px;
-	left: 123px;
-	top: 159px;
-	background: #ffffff;
-	border-radius: 22px;
-}
-
-.screen {
-	width: 100vw;
-	height: 100vw;
+	font-family: 'Outfit';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 13px;
 }

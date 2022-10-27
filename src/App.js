@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Explore from './components/Explore';
 import Bookmark from './components/Bookmark';
 import Profile from './components/Profile';
-import Map from './components/Map'
+import Map from './components/Map';
 
 function App() {
 	return (

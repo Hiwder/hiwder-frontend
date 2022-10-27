@@ -41,6 +41,7 @@ const About = () => {
 						position.coords.longitude,
 						'Your position',
 						'WALK',
+						id,
 					];
 					const orgStr = encodeURIComponent(JSON.stringify(org));
 					const dstStr = encodeURIComponent(
@@ -68,7 +69,7 @@ const About = () => {
 								const orgLoc = data.BeamRoute.org.station_location;
 								const dstName = data.BeamRoute.dst.station_name;
 								const dstLoc = data.BeamRoute.dst.station_location;
-								const org = [orgLoc[0], orgLoc[1], orgName, 'BEAM'];
+								const org = [orgLoc[0], orgLoc[1], orgName, 'BEAM', id];
 								const dst = [dstLoc[0], dstLoc[1], dstName];
 								const orgStr = encodeURIComponent(JSON.stringify(org));
 								const dstStr = encodeURIComponent(
@@ -76,7 +77,6 @@ const About = () => {
 								);
 								navigate('/map/' + orgStr + '/' + dstStr);
 							}
-							console.log('You should walk');
 						});
 				}
 			});
@@ -115,7 +115,7 @@ const About = () => {
 				<div className="transportation">
 					<IconButton
 						className="transportation__icon"
-						id="side"
+						id="left"
 						onClick={() => travel('walk', store.location, store.name)}
 					>
 						<p className="transportation__type">Walk</p>
@@ -127,7 +127,11 @@ const About = () => {
 					>
 						<p className="transportation__type">Beam</p>
 					</IconButton>
-					<IconButton className="transportation__icon" id="side">
+					<IconButton
+						className="transportation__icon"
+						id="right"
+						onClick={() => {}}
+					>
 						<p className="transportation__type">Pop Bus</p>
 					</IconButton>
 				</div>
