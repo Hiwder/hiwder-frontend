@@ -10,7 +10,7 @@ const Map=() => {
     const {org, dst}=useParams();
     const center={lat: JSON.parse(org)[0], lng:JSON.parse(org)[1]}
     const {isLoaded}=useJsApiLoader({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+        googleMapsApiKey: 'AIzaSyDFpNHVnzIYrU49unCss65m4uwVe4RrnUo',
     })
     const [directionsResponse, setDirectionsResponse] = useState(null)
     if(!isLoaded) {
