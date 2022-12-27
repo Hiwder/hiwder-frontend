@@ -10,18 +10,25 @@ Notes : This web app is a [PWA](https://medium.com/@blockchain_simplified/what-i
 
 ## Features
 
-### Home
-
-<img src="https://github.com/Hiwder/.github/blob/main/app-ui/home.png" width="200">
-
-### About
-
-<img src="https://github.com/Hiwder/.github/blob/main/app-ui/about.png" width="200">
-
-### Explore
-
-<img src="https://github.com/Hiwder/.github/blob/main/app-ui/explore.png" width="200">
-
-### Route map
-
-<img src="https://github.com/Hiwder/.github/blob/main/app-ui/map%20route.png" width="200">
+<table>
+	<tr>
+		<td>
+			<h3>Home</h3>
+			<img src="https://github.com/Hiwder/.github/blob/main/app-ui/home.png" width="200">
+		</td>
+		<td>
+			<h3>About</h3>
+			<img src="https://github.com/Hiwder/.github/blob/main/app-ui/about.png" width="200">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h3>Explore</h3>
+			<img src="https://github.com/Hiwder/.github/blob/main/app-ui/explore.png" width="200">
+		</td>
+		<td>
+			<h3>Route Map</h3>
+			<img src="https://github.com/Hiwder/.github/blob/main/app-ui/map%20route.png" width="200">
+		</td>
+	</tr>
+</table>
