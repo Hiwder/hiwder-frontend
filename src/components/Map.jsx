@@ -27,22 +27,19 @@ const Map = () => {
 	});
 	const [directionsResponse, setDirectionsResponse] = useState(null);
 	async function calculateRoute() {
-		// eslint-disable-next-line
 		const directionsService = new google.maps.DirectionsService();
 		const results = await directionsService.route({
 			origin: center,
 			destination: { lat: JSON.parse(dst)[0], lng: JSON.parse(dst)[1] },
-			// eslint-disable-next-line
 			travelMode: google.maps.TravelMode.WALKING,
 		});
 		setDirectionsResponse(results);
 	}
-	useEffect(()=>{
-		if(isLoaded) {
+	useEffect(() => {
+		if (isLoaded) {
 			calculateRoute();
 		}
-		// eslint-disable-next-line
-	}, [isLoaded])
+	}, [isLoaded]);
 	return directionsResponse ? (
 		<div>
 			<div className="rectangle">

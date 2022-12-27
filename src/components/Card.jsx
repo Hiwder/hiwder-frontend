@@ -27,10 +27,8 @@ const Card = () => {
 			});
 		}
 	}, []);
-	// eslint-disable-next-line
 	const [lastDirection, setLastDirection] = useState();
 	const navigate = useNavigate();
-	// used for outOfFrame closure
 	const currentIndexRef = useRef(currentIndex);
 
 	const childRefs = useMemo(
